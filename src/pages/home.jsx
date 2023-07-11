@@ -5,19 +5,23 @@ import Services from '../components/services';
 import CTA from '../components/cta';
 import Testimonials from '../components/testimonial';
 import Contact from '../components/contactus';
+import * as Scroll from 'react-scroll';
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 const navigation = [
-	{ name: 'About us', href: '#' },
-	{ name: 'Services', href: '#' },
-	{ name: 'Testimonials', href: '#' },
-  { name: 'Contact us', href: '#'}
+	{ name: 'About us', href: 'about' },
+	{ name: 'Services', href: 'services' },
+	{ name: 'Testimonials', href: 'testimonials' },
+  { name: 'Contact us', href: 'contact'}
 ];
 
 export default function Example() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  
+
 	return (
-		<div className='bg-white'>
+		<div className='bg-white' id='about'>
 			<header className='absolute inset-x-0 top-0 z-50'>
 				<nav className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8' aria-label='Global'>
 					<div className='flex '>
@@ -42,9 +46,17 @@ export default function Example() {
 					</div>
 					<div className='hidden lg:flex lg:gap-x-12 flex '>
 						{navigation.map((item) => (
-							<a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-gray-900'>
+							<Link
+								key={item.name}
+								to={item.href}
+								className='text-sm font-semibold leading-6 text-gray-900 hover:text-gray-700 cursor-pointer'
+								spy={true}
+								smooth={true}
+								offset={50}
+								duration={500}
+							>
 								{item.name}
-							</a>
+							</Link>
 						))}
 					</div>
 				</nav>
@@ -65,13 +77,17 @@ export default function Example() {
 							<div className='-my-6 divide-y divide-gray-500/10'>
 								<div className='space-y-2 py-6'>
 									{navigation.map((item) => (
-										<a
+										<Link
+											spy={true}
+											smooth={true}
+											offset={50}
+											duration={500}
 											key={item.name}
-											href={item.href}
-											className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+											to={item.href}
+											className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 cursor-pointer'
 										>
 											{item.name}
-										</a>
+										</Link>
 									))}
 								</div>
 							</div>

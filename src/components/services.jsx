@@ -25,7 +25,7 @@ const features = [
 
 export default function Services() {
 	return (
-		<div className='bg-white py-2 sm:py-3'>
+		<div className='bg-white py-2 sm:py-3' id='services'>
 			<div className='mx-auto max-w-7xl px-6 lg:px-8'>
 				<div className='mx-auto max-w-2xl lg:text-center'>
 					
